@@ -15,14 +15,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         startSpinning()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         let url : String = "http://192.241.182.68:5000/statuses"
         let request : NSMutableURLRequest = NSMutableURLRequest()
-        let queue:NSOperationQueue = NSOperationQueue()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
         self.tableRooms.hidden = true
+        self.tableRooms.separatorStyle = .None
+
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)
         
@@ -52,6 +54,53 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         task.resume()
         
     }
+    
+    //Call an update to refresh the table data from the serer
+   @IBAction func refreshRoomData(){
+        
+        let url : String = "http://192.241.182.68:5000/statuses"
+        let request : NSMutableURLRequest = NSMutableURLRequest()
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "GET"
+        self.tableRooms.hidden = true
+        self.tableRooms.separatorStyle = .None
+        
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: config)
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
+            
+            do{
+                
+                let jsonResult: NSMutableArray = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as! NSMutableArray
+                
+                
+                let datastring = NSString(data:data!, encoding:NSUTF8StringEncoding) as! String
+                NSLog(datastring)
+                for var i = 0; i < jsonResult.count; ++i {
+                    let room : RoomObject = RoomObject(input: jsonResult[i] as! NSMutableDictionary)
+                   let foundIndex =  self.roomObjects.indexOf({ return $0.room_id == room.room_id })
+                    if foundIndex == nil{
+                     self.roomObjects.append(room)
+                    }
+                    else
+                    {
+                        self.roomObjects[foundIndex!] = room
+                    }
+                }
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.tableRooms.reloadData()
+                }
+            }
+            catch {
+                
+            }
+            
+        })
+        
+        task.resume()
+    }
+    
     func startSpinning() {
         imageSpinner.startAnimating()
     }
