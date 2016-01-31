@@ -103,7 +103,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flame" translatesAutoresizingMaskIntoConstraints="NO" id="cJ9-m8-ikV">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flames" translatesAutoresizingMaskIntoConstraints="NO" id="cJ9-m8-ikV">
                                                     <rect key="frame" x="224" y="0.0" width="45" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="45" id="j5R-h7-PlO"/>
@@ -197,10 +197,110 @@
             </objects>
             <point key="canvasLocation" x="114" y="354"/>
         </scene>
+        <!--Customer View Controller-->
+        <scene sceneID="Egb-iL-Z33">
+            <objects>
+                <viewController restorationIdentifier="customerScreen" storyboardIdentifier="customerScreen" id="OxM-oI-vqW" customClass="CustomerViewController" customModule="FireDetection" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m15-Nh-Kvr"/>
+                        <viewControllerLayoutGuide type="bottom" id="gCn-zQ-Shm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kkD-it-8Yr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S5b-qQ-g2E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="178" y="1034"/>
+        </scene>
+        <!--Room Image View Controller-->
+        <scene sceneID="wek-Km-BGV">
+            <objects>
+                <viewController restorationIdentifier="roomImage" storyboardIdentifier="roomImage" id="KXb-v9-tUc" customClass="RoomImageViewController" customModule="FireDetection" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cfn-oQ-y8x"/>
+                        <viewControllerLayoutGuide type="bottom" id="EqK-vZ-dR5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ox8-PK-cgO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live View" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8N-fg-Kl9">
+                                <rect key="frame" x="63" y="53" width="249" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="249" id="YZt-PD-qjj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HzZ-u4-Wdh">
+                                <rect key="frame" x="37" y="134" width="300" height="225"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="6W4-BG-Znz"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="GMY-wY-NzA"/>
+                                    <constraint firstAttribute="height" constant="225" id="HBi-ge-8P1"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="LeY-S4-hzi"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="OQW-9t-ma8"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="225" id="SQB-4g-ozz"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCe-Ef-fVA">
+                                <rect key="frame" x="37" y="386" width="300" height="26"/>
+                                <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="26" id="0eO-1A-de5"/>
+                                    <constraint firstAttribute="width" constant="300" id="7ob-H2-bZK"/>
+                                    <constraint firstAttribute="height" constant="26" id="A2v-jj-BXl"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="114" id="ehi-kZ-vca"/>
+                                </constraints>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton" destination="KXb-v9-tUc" eventType="touchUpInside" id="jVi-V2-Ijf"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yN-jW-DBL">
+                                <rect key="frame" x="67" y="93" width="240" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="8Jd-hI-C6A"/>
+                                    <constraint firstAttribute="height" constant="33" id="Alq-4e-g6f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XCe-Ef-fVA" firstAttribute="leading" secondItem="Ox8-PK-cgO" secondAttribute="leadingMargin" constant="17" id="5Un-BU-xex"/>
+                            <constraint firstItem="HzZ-u4-Wdh" firstAttribute="top" secondItem="8yN-jW-DBL" secondAttribute="bottom" constant="8" symbolic="YES" id="9pY-c2-eCk"/>
+                            <constraint firstItem="e8N-fg-Kl9" firstAttribute="top" secondItem="Cfn-oQ-y8x" secondAttribute="bottom" constant="33" id="CEG-mu-EBe"/>
+                            <constraint firstItem="8yN-jW-DBL" firstAttribute="leading" secondItem="e8N-fg-Kl9" secondAttribute="leading" constant="4" id="QZj-oD-x0x"/>
+                            <constraint firstItem="EqK-vZ-dR5" firstAttribute="top" secondItem="XCe-Ef-fVA" secondAttribute="bottom" constant="188" id="XSx-EQ-sbb"/>
+                            <constraint firstItem="XCe-Ef-fVA" firstAttribute="top" secondItem="HzZ-u4-Wdh" secondAttribute="bottom" constant="27" id="Z4B-XA-LGl"/>
+                            <constraint firstItem="8yN-jW-DBL" firstAttribute="leading" secondItem="Ox8-PK-cgO" secondAttribute="leading" constant="67" id="g0o-Y2-zJY"/>
+                            <constraint firstItem="HzZ-u4-Wdh" firstAttribute="leading" secondItem="Ox8-PK-cgO" secondAttribute="leadingMargin" constant="17" id="mkN-HP-9mh"/>
+                            <constraint firstItem="8yN-jW-DBL" firstAttribute="top" secondItem="e8N-fg-Kl9" secondAttribute="bottom" constant="8" symbolic="YES" id="xJa-Jg-uZ2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageURL" destination="HzZ-u4-Wdh" id="51X-xx-SnP"/>
+                        <outlet property="lblImageRoomName" destination="8yN-jW-DBL" id="ZWb-DP-wOQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sdu-nS-t5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="269" y="967"/>
+        </scene>
     </scenes>
     <resources>
         <image name="carbonMonoxide" width="240" height="240"/>
-        <image name="flame" width="1280" height="1280"/>
+        <image name="flames" width="1024" height="1024"/>
         <image name="fp_planb" width="350" height="300"/>
     </resources>
 </document>

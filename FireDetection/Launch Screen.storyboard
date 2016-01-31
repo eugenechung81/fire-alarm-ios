@@ -19,6 +19,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fire Detection System" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utu-qs-dMJ">
+                                <rect key="frame" x="20" y="356" width="321" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="321" id="CDy-JU-48x"/>
+                                    <constraint firstAttribute="height" constant="66" id="gzt-aU-nJe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2016 Team Hot Pocket" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYM-Pg-VSq">
+                                <rect key="frame" x="20" y="414" width="321" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="321" id="PID-U4-2Hg"/>
+                                    <constraint firstAttribute="height" constant="66" id="bUV-ce-x5I"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FireDetection" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb">
                                 <rect key="frame" x="20" y="180" width="560" height="43"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
@@ -26,43 +45,32 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firefighter-2400px" translatesAutoresizingMaskIntoConstraints="NO" id="tOO-zD-taG">
-                                <rect key="frame" x="129" y="20" width="321" height="316"/>
+                                <rect key="frame" x="46" y="50" width="295" height="316"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="321" id="WFG-m5-Lrq"/>
+                                    <constraint firstAttribute="width" constant="295" id="WFG-m5-Lrq"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="201" id="mit-x7-Y03"/>
                                     <constraint firstAttribute="height" constant="316" id="sot-2a-Ju9"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="tHQ-Xk-Yrp"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fire Detection System" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utu-qs-dMJ">
-                                <rect key="frame" x="20" y="344" width="321" height="66"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="© 2016 Team Hot Pocket" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYM-Pg-VSq">
-                                <rect key="frame" x="20" y="402" width="321" height="66"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="utu-qs-dMJ" firstAttribute="top" secondItem="tOO-zD-taG" secondAttribute="bottom" constant="-10" id="1ON-qV-y2R"/>
+                            <constraint firstItem="yYM-Pg-VSq" firstAttribute="top" secondItem="tOO-zD-taG" secondAttribute="bottom" constant="48" id="3lr-OD-bI0"/>
+                            <constraint firstItem="yYM-Pg-VSq" firstAttribute="leading" secondItem="utu-qs-dMJ" secondAttribute="leading" id="DGB-jw-lQD"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="tOO-zD-taG" secondAttribute="bottom" constant="379" id="E8e-x3-Y7p"/>
-                            <constraint firstAttribute="centerX" secondItem="GJd-Yh-RWb" secondAttribute="centerX" id="Q3B-4B-g5h"/>
-                            <constraint firstItem="tOO-zD-taG" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="160" id="cly-Sc-U9B"/>
+                            <constraint firstItem="yYM-Pg-VSq" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="SOD-Dw-Z81"/>
                             <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="bottom" multiplier="1/3" constant="1" id="moa-c2-u7t"/>
-                            <constraint firstItem="tOO-zD-taG" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-122" id="rw3-1P-D8G"/>
-                            <constraint firstItem="tOO-zD-taG" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="-10.5" id="t7i-om-naZ"/>
+                            <constraint firstItem="tOO-zD-taG" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-92" id="rw3-1P-D8G"/>
                             <constraint firstItem="GJd-Yh-RWb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" symbolic="YES" id="x7j-FC-K8j"/>
-                            <constraint firstItem="tOO-zD-taG" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="109" id="yJU-a0-pb1"/>
+                            <constraint firstItem="tOO-zD-taG" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="26" id="yJU-a0-pb1"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="GJd-Yh-RWb"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="cly-Sc-U9B"/>
                                 <exclude reference="E8e-x3-Y7p"/>
                             </mask>
                         </variation>

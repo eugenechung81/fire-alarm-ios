@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B65832F1C5DC683003939EF /* CustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65832E1C5DC683003939EF /* CustomerViewController.swift */; };
+		7B6583311C5DDD43003939EF /* RoomImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6583301C5DDD43003939EF /* RoomImageViewController.swift */; };
 		7BA2B3B31C5D4B5D00C7E3D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2B3B21C5D4B5D00C7E3D9 /* AppDelegate.swift */; };
 		7BA2B3B51C5D4B5D00C7E3D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2B3B41C5D4B5D00C7E3D9 /* ViewController.swift */; };
 		7BA2B3C81C5D4B5D00C7E3D9 /* FireDetectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2B3C71C5D4B5D00C7E3D9 /* FireDetectionTests.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B65832E1C5DC683003939EF /* CustomerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerViewController.swift; sourceTree = "<group>"; };
+		7B6583301C5DDD43003939EF /* RoomImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomImageViewController.swift; sourceTree = "<group>"; };
 		7BA2B3AF1C5D4B5D00C7E3D9 /* FireDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA2B3B21C5D4B5D00C7E3D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BA2B3B41C5D4B5D00C7E3D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 				7BA2B3B21C5D4B5D00C7E3D9 /* AppDelegate.swift */,
 				7BA2B3B41C5D4B5D00C7E3D9 /* ViewController.swift */,
 				7BA2B3E51C5D6C9200C7E3D9 /* HeaderRow.swift */,
+				7B65832E1C5DC683003939EF /* CustomerViewController.swift */,
+				7B6583301C5DDD43003939EF /* RoomImageViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -273,6 +279,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B65832F1C5DC683003939EF /* CustomerViewController.swift in Sources */,
+				7B6583311C5DDD43003939EF /* RoomImageViewController.swift in Sources */,
 				7BA2B3B51C5D4B5D00C7E3D9 /* ViewController.swift in Sources */,
 				7BA2B3B31C5D4B5D00C7E3D9 /* AppDelegate.swift in Sources */,
 				7BA2B3E31C5D5AF400C7E3D9 /* RoomDetailRow.swift in Sources */,
@@ -500,6 +508,7 @@
 				7BA2B3D91C5D4B5D00C7E3D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7BA2B3DA1C5D4B5D00C7E3D9 /* Build configuration list for PBXNativeTarget "FireDetectionTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +517,7 @@
 				7BA2B3DC1C5D4B5D00C7E3D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7BA2B3DD1C5D4B5D00C7E3D9 /* Build configuration list for PBXNativeTarget "FireDetectionUITests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +526,7 @@
 				7BA2B3DF1C5D4B5D00C7E3D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

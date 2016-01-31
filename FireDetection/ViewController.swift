@@ -23,6 +23,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
         self.tableRooms.hidden = true
+        self.tableRooms.delegate = self
         self.tableRooms.separatorStyle = .None
 
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
@@ -53,6 +54,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         task.resume()
         
+    }
+    
+    @IBAction func openCustomerPage(){
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let customerPage : CustomerViewController = mainStoryboard.instantiateViewControllerWithIdentifier("customerScreen") as! CustomerViewController
+
+        
+        
+        let navigationController = UINavigationController(rootViewController: customerPage)
+        navigationController.setNavigationBarHidden(true, animated: true)
+        self.presentViewController(navigationController, animated: true, completion: nil)
     }
     
     //Call an update to refresh the table data from the serer
@@ -130,8 +142,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if roomObj.status == "NORMAL"{
                 cell.imageFire!.hidden = true
             }
+            else{
+                cell.imageFire!.hidden = false
+            }
             if !roomObj.carbonDetected{
                 cell.imageCO!.hidden = true
+            }
+            else{
+              cell.imageCO!.hidden = false
             }
             
             return cell
@@ -144,7 +162,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        if indexPath.item < ( roomObjects.count + 1 ) && indexPath.item > 0 {
+            let room = roomObjects[indexPath.item - 1]
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            let roomImage : RoomImageViewController = mainStoryboard.instantiateViewControllerWithIdentifier("roomImage") as! RoomImageViewController
+            roomImage.room = room
+            
+            let navigationController = UINavigationController(rootViewController: roomImage)
+            navigationController.setNavigationBarHidden(true, animated: true)
+            self.presentViewController(navigationController, animated: true, completion: nil)
+        }
     }
     
 }
