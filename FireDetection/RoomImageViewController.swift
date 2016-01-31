@@ -15,7 +15,9 @@ class RoomImageViewController : UIViewController{
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        lblImageRoomName.text = room.room_id
+        self.title = room.room_id
+        self.navigationItem.hidesBackButton = true
+        //Load live imag from the server
         if let url = NSURL(string: "http://192.241.182.68:5000/images/" + room.room_id + ".png") {
             if let data = NSData(contentsOfURL: url) {
                 imageURL.image = UIImage(data: data)
@@ -24,6 +26,6 @@ class RoomImageViewController : UIViewController{
     }
     
     @IBAction func backButton(){
-    self.dismissViewControllerAnimated(true, completion: {});
+        self.navigationController!.popViewControllerAnimated(true)
     }
 }

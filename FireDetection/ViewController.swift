@@ -15,8 +15,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
         startSpinning()
+        self.title = "FLAME WARDEN"
         
         let url : String = "http://192.241.182.68:5000/statuses"
         let request : NSMutableURLRequest = NSMutableURLRequest()
@@ -25,25 +25,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tableRooms.hidden = true
         self.tableRooms.delegate = self
         self.tableRooms.separatorStyle = .None
-
+        
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)
-        
+        //Call task to download current room layout data from server
         let task = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
             
             do{
-                
-                let jsonResult: NSMutableArray = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as! NSMutableArray
-                
-                
-                let datastring = NSString(data:data!, encoding:NSUTF8StringEncoding) as! String
-                NSLog(datastring)
-                for var i = 0; i < jsonResult.count; ++i {
-                    let room : RoomObject = RoomObject(input: jsonResult[i] as! NSMutableDictionary)
-                    self.roomObjects.append(room)
-                }
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.tableRooms.reloadData()
+                if data != nil{
+                    let jsonResult: NSMutableArray = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as! NSMutableArray
+                    
+                    
+                    let datastring = NSString(data:data!, encoding:NSUTF8StringEncoding) as! String
+                    NSLog(datastring)
+                    //Get all available rooms and data, refresh table upon completion
+                    for var i = 0; i < jsonResult.count; ++i {
+                        let room : RoomObject = RoomObject(input: jsonResult[i] as! NSMutableDictionary)
+                        self.roomObjects.append(room)
+                    }
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.tableRooms.reloadData()
+                    }
                 }
             }
             catch {
@@ -59,7 +61,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func openCustomerPage(){
         let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let customerPage : CustomerViewController = mainStoryboard.instantiateViewControllerWithIdentifier("customerScreen") as! CustomerViewController
-
+        
         
         
         let navigationController = UINavigationController(rootViewController: customerPage)
@@ -68,7 +70,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     //Call an update to refresh the table data from the serer
-   @IBAction func refreshRoomData(){
+    @IBAction func refreshRoomData(){
         
         let url : String = "http://192.241.182.68:5000/statuses"
         let request : NSMutableURLRequest = NSMutableURLRequest()
@@ -86,14 +88,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 let jsonResult: NSMutableArray = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as! NSMutableArray
                 
-                
+                //Update existing rooms or add new rooms
                 let datastring = NSString(data:data!, encoding:NSUTF8StringEncoding) as! String
                 NSLog(datastring)
                 for var i = 0; i < jsonResult.count; ++i {
                     let room : RoomObject = RoomObject(input: jsonResult[i] as! NSMutableDictionary)
-                   let foundIndex =  self.roomObjects.indexOf({ return $0.room_id == room.room_id })
+                    //Find if this room currntly exists and get the index
+                    let foundIndex =  self.roomObjects.indexOf({ return $0.room_id == room.room_id })
                     if foundIndex == nil{
-                     self.roomObjects.append(room)
+                        self.roomObjects.append(room)
                     }
                     else
                     {
@@ -134,11 +137,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.item > 0 {
             stopSpinning()
+            //Setup row based on Room data
+            
             self.tableRooms.hidden = false
             let cell = tableRooms.dequeueReusableCellWithIdentifier("RoomDetailRow") as! RoomDetailRow
             let roomObj = roomObjects[indexPath.item-1]
             cell.numberOccupents!.text = String(roomObj.occupancy)
             cell.roomName!.text = roomObj.room_id
+            
+            //Show and hide status warning images
             if roomObj.status == "NORMAL"{
                 cell.imageFire!.hidden = true
             }
@@ -149,7 +156,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 cell.imageCO!.hidden = true
             }
             else{
-              cell.imageCO!.hidden = false
+                cell.imageCO!.hidden = false
             }
             
             return cell
@@ -163,14 +170,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.item < ( roomObjects.count + 1 ) && indexPath.item > 0 {
+            //Open image dtail view as long as it's not the header row. 
             let room = roomObjects[indexPath.item - 1]
             let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
             let roomImage : RoomImageViewController = mainStoryboard.instantiateViewControllerWithIdentifier("roomImage") as! RoomImageViewController
             roomImage.room = room
-            
+            self.navigationItem.hidesBackButton = true
+            roomImage.navigationItem.hidesBackButton = true
             let navigationController = UINavigationController(rootViewController: roomImage)
-            navigationController.setNavigationBarHidden(true, animated: true)
-            self.presentViewController(navigationController, animated: true, completion: nil)
+            navigationController.navigationBar.backgroundColor = self.navigationController?.navigationBar.backgroundColor
+            self.navigationController?.pushViewController(roomImage, animated: true)
         }
     }
     

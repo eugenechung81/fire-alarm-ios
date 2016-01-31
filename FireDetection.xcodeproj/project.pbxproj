@@ -41,7 +41,7 @@
 /* Begin PBXFileReference section */
 		7B65832E1C5DC683003939EF /* CustomerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerViewController.swift; sourceTree = "<group>"; };
 		7B6583301C5DDD43003939EF /* RoomImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomImageViewController.swift; sourceTree = "<group>"; };
-		7BA2B3AF1C5D4B5D00C7E3D9 /* FireDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BA2B3AF1C5D4B5D00C7E3D9 /* Flame Warden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flame Warden.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA2B3B21C5D4B5D00C7E3D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BA2B3B41C5D4B5D00C7E3D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7BA2B3BE1C5D4B5D00C7E3D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		7BA2B3B01C5D4B5D00C7E3D9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7BA2B3AF1C5D4B5D00C7E3D9 /* FireDetection.app */,
+				7BA2B3AF1C5D4B5D00C7E3D9 /* Flame Warden.app */,
 				7BA2B3C31C5D4B5D00C7E3D9 /* FireDetectionTests.xctest */,
 				7BA2B3CE1C5D4B5D00C7E3D9 /* FireDetectionUITests.xctest */,
 			);
@@ -165,7 +165,7 @@
 			);
 			name = FireDetection;
 			productName = FireDetection;
-			productReference = 7BA2B3AF1C5D4B5D00C7E3D9 /* FireDetection.app */;
+			productReference = 7BA2B3AF1C5D4B5D00C7E3D9 /* Flame Warden.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7BA2B3C21C5D4B5D00C7E3D9 /* FireDetectionTests */ = {
@@ -422,8 +422,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = FireDetection/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = IPShacks.FireDetection;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = TeamHotPocket.FlameWarden;
+				PRODUCT_NAME = "Flame Warden";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -435,8 +435,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = FireDetection/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = IPShacks.FireDetection;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = TeamHotPocket.FlameWarden;
+				PRODUCT_NAME = "Flame Warden";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
