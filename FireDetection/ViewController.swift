@@ -23,28 +23,36 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
         self.tableRooms.hidden = true
-        NSURLConnection.sendAsynchronousRequest(request, queue: queue, completionHandler:{ response, data, error in
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: config)
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
+            
             do{
-            
-           var jsonResult: NSMutableArray = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as! NSMutableArray
-            
-            
-            let datastring = NSString(data:data!, encoding:NSUTF8StringEncoding) as! String
-            NSLog(datastring)
+                
+                let jsonResult: NSMutableArray = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as! NSMutableArray
+                
+                
+                let datastring = NSString(data:data!, encoding:NSUTF8StringEncoding) as! String
+                NSLog(datastring)
                 for var i = 0; i < jsonResult.count; ++i {
-                    let test : RoomObject = RoomObject(input: jsonResult[i] as! NSMutableDictionary)
-                    self.roomObjects.append(test)
+                    let room : RoomObject = RoomObject(input: jsonResult[i] as! NSMutableDictionary)
+                    self.roomObjects.append(room)
                 }
-                self.tableRooms.reloadData()
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.tableRooms.reloadData()
+                }
             }
             catch {
                 
             }
-
+            
         })
-
+        
+        task.resume()
+        
     }
-     func startSpinning() {
+    func startSpinning() {
         imageSpinner.startAnimating()
     }
     
@@ -81,7 +89,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         else{
             let cell = tableRooms.dequeueReusableCellWithIdentifier("HeaderRow") as! HeaderRow
-
+            
             return cell
         }
     }
